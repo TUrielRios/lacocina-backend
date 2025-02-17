@@ -1,15 +1,16 @@
-// db.js
 const { Sequelize } = require("sequelize");
+
 const config = require("./config/config");
 
-const sequelize = new Sequelize(
-  config.development.database,
-  config.development.username,
-  config.development.password,
-  {
-    host: config.development.host,
-    dialect: config.development.dialect,
-  }
-);
+const sequelize = new Sequelize(config.development.DATABASE_URL, {
+  dialect: "postgres",
+  protocol: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+});
 
 module.exports = sequelize;
