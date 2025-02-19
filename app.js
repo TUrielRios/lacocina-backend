@@ -8,7 +8,7 @@ app.use(express.json());
 
 // Configura CORS
 app.use(cors({
-  origin: "http://localhost:3001", // Permite solicitudes desde este origen
+  origin: "*", // Permite solicitudes desde este origen
   methods: "GET,POST,PUT,DELETE", // Métodos HTTP permitidos
   credentials: true, // Permite el envío de credenciales (cookies, headers de autenticación, etc.)
 }));
